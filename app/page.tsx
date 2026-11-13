@@ -2,12 +2,16 @@
 
 import React from 'react';
 import { MessageSquare, Terminal, Database, Server, Layout, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export default function Portfolio() {
-  const fadeUp = {
+  const fadeUp: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] } 
+    }
   };
 
   return (
@@ -21,7 +25,7 @@ export default function Portfolio() {
         className="fixed top-0 w-full border-b border-[#1E293B] bg-[#0B0F19]/85 backdrop-blur-md z-50"
       >
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="text-xl font-bold tracking-tighter text-white">marlinho<span className="text-[#E5F95B]">.dev</span></span>
+          <span className="text-xl font-bold tracking-tighter text-white">Marlon<span className="text-[#E5F95B]">.dev</span></span>
           <nav className="hidden md:flex gap-6 text-sm font-medium text-slate-400">
             <a href="#experiencia" className="hover:text-[#E5F95B] transition-colors">Experiência</a>
             <a href="#servicos" className="hover:text-[#E5F95B] transition-colors">Soluções</a>
@@ -78,7 +82,7 @@ export default function Portfolio() {
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
             className="relative"
           >
             {/* Efeitos de Luz de Fundo (Glow) */}
@@ -91,10 +95,6 @@ export default function Portfolio() {
                 src="/marlon.png" 
                 alt="Marlon Victor" 
                 className="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-500"
-                onError={(e) => {
-                  // Fallback se a foto não for encontrada
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500"; // Substitua se necessário
-                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-80"></div>
             </div>
